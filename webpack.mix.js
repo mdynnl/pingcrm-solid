@@ -17,7 +17,6 @@ const webpackConfig = require('./webpack.config')
 
 mix
   .js('resources/js/app.js', 'public/js')
-  .vue({ runtimeOnly: (process.env.NODE_ENV || 'production') === 'production' })
   .webpackConfig(webpackConfig)
   .postCss('resources/css/app.css', 'public/css', [
     // prettier-ignore
@@ -25,5 +24,6 @@ mix
     cssNesting(),
     require('tailwindcss'),
   ])
+  .disableNotifications()
   .version()
-  .sourceMaps()
+//  .sourceMaps()
